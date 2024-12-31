@@ -12,6 +12,10 @@ export type CreateUserRequest = {
   password: string;
 };
 
+export type LoginUserRequest = {
+  username: string;
+  password: string;
+};
 
 // Function Helper
 export function toUserResponse(user: User): UserResponse {
