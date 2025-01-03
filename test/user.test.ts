@@ -134,7 +134,7 @@ describe("PATCH /api/users/current", () => {
     expect(response.body.errors).toBeDefined();
   });
 
-  it("should reject update user is invalid", async () => {
+  it("should reject update user token is invalid", async () => {
     const response = await supertest(web)
       .patch("/api/users/current")
       .set("X-API-TOKEN", "salah")
@@ -197,5 +197,15 @@ describe("DELETE /api/users/current", () => {
 
     const user = await UserTest.get();
     expect(user.token).toBeNull();
+  });
+
+  it("should reject logout user if token is wrong", async () => {
+    const response = await supertest(web)
+      .delete("/api/users/current")
+      .set("X-API-TOKEN", "salah");
+
+    logger.debug(response.body);
+    expect(response.status).toBe(401);
+    expect(response.body.errors).toBeDefined();
   });
 });

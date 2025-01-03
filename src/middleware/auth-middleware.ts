@@ -1,4 +1,4 @@
-import {  Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
 import { prismaClient } from "../application/database";
 import { UserRequest } from "../type/user-request";
 

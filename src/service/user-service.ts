@@ -23,13 +23,13 @@ export class UserService {
     // End Validation Data
 
     // Start Pengecekan Username
-    const totalUseWithSameUsername = await prismaClient.user.count({
+    const totalUserWithSameUsername = await prismaClient.user.count({
       where: {
         username: registerRequest.username,
       },
     });
 
-    if (totalUseWithSameUsername != 0) {
+    if (totalUserWithSameUsername != 0) {
       throw new ResponseError(400, "Username already exists");
     }
     // End Pengecekan Username
@@ -66,11 +66,11 @@ export class UserService {
     // End Pengecekan Username
 
     // Start Pengecekan Password
-    const isPasswrodValid = await bcrypt.compare(
+    const isPasswordValid = await bcrypt.compare(
       loginRequest.password,
       user.password
     );
-    if (!isPasswrodValid) {
+    if (!isPasswordValid) {
       throw new ResponseError(401, "Username or password is wrong");
     }
     // End Pengecekan Password
