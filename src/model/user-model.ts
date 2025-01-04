@@ -22,7 +22,6 @@ export type UpdateUserRequest = {
   password?: string;
 };
 
-// Function Helper
 export function toUserResponse(user: User): UserResponse {
   return {
     name: user.name,

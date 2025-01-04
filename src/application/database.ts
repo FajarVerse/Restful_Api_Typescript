@@ -1,7 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { logger } from "./logging";
 
-// SetUp Prisma
 export const prismaClient = new PrismaClient({
   log: [
     {
@@ -23,7 +22,6 @@ export const prismaClient = new PrismaClient({
   ],
 });
 
-// Prisma Event
 prismaClient.$on("error", (e) => {
   logger.error(e);
 });

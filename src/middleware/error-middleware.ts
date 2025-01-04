@@ -3,7 +3,7 @@ import { ZodError } from "zod";
 import { ResponseError } from "../error/response-error";
 
 // Error Middleware
-export const ErrorMiddleware = async (
+export const errorMiddleware = async (
   error: Error,
   req: Request,
   res: Response,

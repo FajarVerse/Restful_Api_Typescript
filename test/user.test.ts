@@ -100,7 +100,7 @@ describe("GET /api/users/current", () => {
     expect(response.body.data.name).toBe("test");
   });
 
-  it("should be able to get user is invalid", async () => {
+  it("should reject get user if token is invalid", async () => {
     const response = await supertest(web)
       .get("/api/users/current")
       .set("X-API-TOKEN", "salah");
@@ -120,13 +120,13 @@ describe("PATCH /api/users/current", () => {
     await UserTest.delete();
   });
 
-  it("should reject update user is invalid", async () => {
+  it("should reject update user if request is invalid", async () => {
     const response = await supertest(web)
       .patch("/api/users/current")
       .set("X-API-TOKEN", "test")
       .send({
-        name: "",
         password: "",
+        name: "",
       });
 
     logger.debug(response.body);
@@ -134,7 +134,7 @@ describe("PATCH /api/users/current", () => {
     expect(response.body.errors).toBeDefined();
   });
 
-  it("should reject update user token is invalid", async () => {
+  it("should reject update user if token is wrong", async () => {
     const response = await supertest(web)
       .patch("/api/users/current")
       .set("X-API-TOKEN", "salah")
