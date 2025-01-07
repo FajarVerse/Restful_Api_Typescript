@@ -2,7 +2,6 @@ import supertest from "supertest";
 import { ContactTest, UserTest } from "./test-util";
 import { web } from "../src/application/web";
 import { logger } from "../src/application/logging";
-import { prismaClient } from "../src/application/database";
 
 describe("POST /api/contacts", () => {
   beforeEach(async () => {
