@@ -1,0 +1,149 @@
+### Register user
+POST http://localhost:3000/api/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "nazwa",
+  "password": "nazwa123",
+  "name": "Nazwa"
+}
+
+
+### Login user
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "nazwa",
+  "password": "rahasia"
+}
+
+
+### Get user
+GET http://localhost:3000/api/users/current
+Accept: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+
+### Logout user
+DELETE  http://localhost:3000/api/users/current
+Accept: application/json
+X-API-TOKEN: e073ab26-9568-4dce-8aad-58d75ccbc1d9
+
+
+### Upadate Name
+PATCH  http://localhost:3000/api/users/current
+Accept: application/json
+Content-Type: application/json
+X-API-TOKEN: da054a3c-9e62-49f5-9a00-6e87a691a446
+
+{
+  "name": "Nazwa Alfa"
+}
+
+### Upadate Password
+PATCH  http://localhost:3000/api/users/current
+Accept: application/json
+Content-Type: application/json
+X-API-TOKEN: da054a3c-9e62-49f5-9a00-6e87a691a446
+
+{
+  "password": "rahasia"
+}
+
+
+
+### Creacte Contact
+POST http://localhost:3000/api/contacts
+Accept: application/json
+Content-Type: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+{
+  "first_name" : "Joko",
+  "last_name" : "Anto",
+  "email" : "anto@example.com",
+  "phone" : " 08222222222"
+}
+
+
+### Upadate Contact
+PUT http://localhost:3000/api/contacts/612
+Accept: application/json
+Content-Type: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+{
+  "first_name" : "Nazwa",
+  "last_name" : "Alfadillah",
+  "email" : "nazwa@example.com",
+  "phone" : " 08222222222"
+}
+
+
+### Get Contact
+GET http://localhost:3000/api/contacts/614
+Accept: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+
+### Remove Contact
+DELETE http://localhost:3000/api/contacts/614
+Accept: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+
+### Search Contact
+GET http://localhost:3000/api/contacts
+Accept: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+
+
+### Add Address
+POST http://localhost:3000/api/contacts/615/addresses
+Accept: application/json
+Content-Type: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+{
+  "street": "Jalan C",
+  "city": "Bandung",
+  "province": "Jawa Barat",
+  "country": "Indonesia",
+  "postal_code": "2222"
+}
+
+
+### Get Address
+GET http://localhost:3000/api/contacts/615/addresses/197
+Accept: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+
+### Update Address
+PUT http://localhost:3000/api/contacts/615/addresses/197
+Accept: application/json
+Content-Type: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+{
+  "street": "Jalan B",
+  "city": "Jakarta",
+  "province": "DKI Jakarta",
+  "country": "Indonesia",
+  "postal_code": "4242"
+}
+
+### List Address
+GET http://localhost:3000/api/contacts/615/addresses/
+Accept: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
+
+
+### Remove Address
+DELETE http://localhost:3000/api/contacts/615/addresses/198
+Accept: application/json
+X-API-TOKEN: c6bcb56e-3433-47db-bed6-6240225d1934
